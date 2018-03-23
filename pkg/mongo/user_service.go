@@ -47,6 +47,12 @@ func (p *UserService) GetByUsername(username string) (*root.User, error) {
 	return model.toRootUser(), err
 }
 
+func (p *UserService) GetById(userid int) (*root.User, error) {
+	model := userModel{}
+	err := p.collection.Find(bson.M{"userid": userid}).One(&model)
+	return model.toRootUser(), err
+}
+
 func (p *UserService) Login(c root.Credentials) (error, root.User) {
   model := userModel{}
   err := p.collection.Find(bson.M{"username": c.Username}).One(&model)

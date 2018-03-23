@@ -6,7 +6,7 @@ import (
 	"2C_login_ms/pkg"
 	"log"
 	"net/http"
-
+	"strconv"
 	"github.com/gorilla/mux"
 )
 
@@ -18,7 +18,8 @@ func NewUserRouter(u root.UserService, router *mux.Router) *mux.Router {
 	userRouter := userRouter{u}
 
 	router.HandleFunc("/register", userRouter.createUserHandler).Methods("POST")
-  router.HandleFunc("/{username}", userRouter.getUserHandler).Methods("GET")
+  router.HandleFunc("/u/{username}", userRouter.getUserHandler).Methods("GET")
+	router.HandleFunc("/{id}", userRouter.getUserByIdHandler).Methods("GET")
 	router.HandleFunc("/{username}", userRouter.deleteUserHandler).Methods("DELETE")
   router.HandleFunc("/login", userRouter.loginHandler).Methods("POST")
 	return router
@@ -55,10 +56,22 @@ func (ur *userRouter) deleteUserHandler(w http.ResponseWriter, r *http.Request) 
 
 func (ur *userRouter) getUserHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	log.Println(vars)
 	username := vars["username"]
 
 	user, err := ur.userService.GetByUsername(username)
+	if err != nil {
+		Error(w, http.StatusNotFound, err.Error())
+		return
+	}
+
+	Json(w, http.StatusOK, user)
+}
+
+func (ur *userRouter) getUserByIdHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	userId, err := strconv.Atoi(vars["id"])
+
+	user, err := ur.userService.GetById(userId)
 	if err != nil {
 		Error(w, http.StatusNotFound, err.Error())
 		return

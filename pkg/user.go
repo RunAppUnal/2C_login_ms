@@ -14,6 +14,7 @@ type User struct {
 type UserService interface {
   CreateUser(u *User) error
   GetByUsername(username string) (*User,error)
+  GetById(userid int) (*User,error)
   DeleteByUsername(username string) error
   Login(c Credentials) (error, User)
 }
