@@ -1,7 +1,7 @@
 package mongo
 
 import (
-  "go_rest_api/pkg"
+  "2C_login_ms/pkg"
   "gopkg.in/mgo.v2/bson"
   "gopkg.in/mgo.v2"
   "golang.org/x/crypto/bcrypt"

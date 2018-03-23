@@ -3,9 +3,9 @@ package mongo_test
 import (
   "log"
   "testing"
-  "go_rest_api/pkg"
-  "go_rest_api/pkg/mongo"
-  "go_rest_api/pkg/mock"
+  "2C_login_ms/pkg"
+  "2C_login_ms/pkg/mongo"
+  "2C_login_ms/pkg/mock"
 )
 
 

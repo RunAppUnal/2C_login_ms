@@ -1,7 +1,7 @@
 package server
 
 import (
-	"go_rest_api/pkg"
+	"2C_login_ms/pkg"
 	"log"
 	"net/http"
 	"os"
@@ -21,8 +21,8 @@ func NewServer(u root.UserService) *Server {
 }
 
 func (s *Server) Start() {
-	log.Println("Listening on port 8080")
-	if err := http.ListenAndServe(":8080", handlers.LoggingHandler(os.Stdout, s.router)); err != nil {
+	log.Println("Listening on port 6004")
+	if err := http.ListenAndServe(":6004", handlers.LoggingHandler(os.Stdout, s.router)); err != nil {
 		log.Fatal("http.ListenAndServe: ", err)
 	}
 }

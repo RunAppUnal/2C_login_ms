@@ -3,7 +3,7 @@ package server
 import (
 	"encoding/json"
 	"errors"
-	"go_rest_api/pkg"
+	"2C_login_ms/pkg"
 	"log"
 	"net/http"
 

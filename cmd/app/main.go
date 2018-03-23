@@ -1,15 +1,16 @@
 package main
 
 import (
-	"go_rest_api/pkg/crypto"
-	"go_rest_api/pkg/mongo"
-	"go_rest_api/pkg/server"
+	"2C_login_ms/pkg/crypto"
+	"2C_login_ms/pkg/mongo"
+	"2C_login_ms/pkg/server"
 	"log"
 )
 
 func main() {
-	ms, err := mongo.NewSession("127.0.0.1:27017")
+	ms, err := mongo.NewSession("192.168.99.101:27017")
 	if err != nil {
+		log.Println(err)
 		log.Fatalln("unable to connect to mongodb")
 	}
 	defer ms.Close()
