@@ -20,7 +20,7 @@ func NewUserRouter(u root.UserService, router *mux.Router) *mux.Router {
 	router.HandleFunc("/register", userRouter.createUserHandler).Methods("POST")
   router.HandleFunc("/u/{username}", userRouter.getUserHandler).Methods("GET")
 	router.HandleFunc("/{id}", userRouter.getUserByIdHandler).Methods("GET")
-	router.HandleFunc("/{username}", userRouter.deleteUserHandler).Methods("DELETE")
+	router.HandleFunc("/u/{username}", userRouter.deleteUserHandler).Methods("DELETE")
   router.HandleFunc("/login", userRouter.loginHandler).Methods("POST")
 	return router
 }

@@ -8,7 +8,7 @@ type User struct {
   Email        string  `json:"email"`
   Name         string  `json:"name"`
   LastName     string  `json:"lastname"`
-  Cellphone    int     `json:"cellphone`
+  Cellphone    string     `json:"cellphone`
 }
 
 type UserService interface {

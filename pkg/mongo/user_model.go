@@ -15,7 +15,7 @@ type userModel struct {
   Email        string
   Name         string
   LastName     string
-  Cellphone    int
+  Cellphone    string
 }
 
 func userModelIndex() mgo.Index {
