@@ -18,4 +18,5 @@ RUN go install 2C_login_ms/cmd/app
 ENTRYPOINT /go/bin/app
 
 # Service listens on port 6004.
+
 EXPOSE 6004

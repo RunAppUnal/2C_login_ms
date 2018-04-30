@@ -29,7 +29,7 @@ func (p *UserService) CreateUser(u *root.User) error {
 	user.Password = hashedPassword
 
 	// connect AutoIncrement to collection "users"
-	session, err := mgo.Dial("192.168.99.101:27017")
+	session, err := mgo.Dial("192.168.99.102:27017")
   ai.Connect(session.DB("2C_login_db").C("user"))
 	user.UserId = ai.Next("user")
 

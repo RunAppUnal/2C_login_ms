@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	ms, err := mongo.NewSession("192.168.99.101:27017")
+	ms, err := mongo.NewSession("192.168.99.102:27017")
 	if err != nil {
 		log.Println(err)
 		log.Fatalln("unable to connect to mongodb")
