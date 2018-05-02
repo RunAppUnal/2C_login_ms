@@ -1,0 +1,99 @@
+#Test with: http://editor.swagger.io/
+
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Microservice for login
+  description: Ruby + MySQL
+  license:
+    name: Software Architecture 2018-I
+host: 192.168.99.102:6004
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /auth:
+    post:
+      summary: Creates a new user
+      operationId: createUser
+      parameters:
+        - name: user
+          in: body
+          required: true
+          description: User Object
+          schema:
+            $ref: '#/definitions/UserInput'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+definitions:
+
+  # Students
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      email:
+        type: string
+      provider:
+        type: string
+      uid:
+        type: string
+      allow_password_change:
+        type: boolean
+      name:
+        type: string
+      lastname:
+        type: string
+      username:
+        type: string
+      cellphone:
+        type: string
+
+
+  UserInput:
+    type: object
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      lastname:
+        type: string
+      username:
+        type: string
+      cellphone:
+        type: string
+      password:
+        type: string
+      password_confirmation:
+        type: string
+
+
+# Errors
+  ErrorModel:
+    type: object
+    required:
+      - message
+      - code
+    properties:
+      message:
+        type: string
+      code:
+        type: number
+      description:
+        type: object
