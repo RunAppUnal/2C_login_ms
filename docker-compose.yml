@@ -1,21 +1,19 @@
 version: '2'
 services:
-  
-  mongodb:
-    image: mongo:latest
-    container_name: login-db
-    ports:
-      - "27017:27017"
-    volumes:
-      - "mongodata:/data/2C_login_db"
-    networks:
-      - login-db
-
-
-
-
-volumes:
-   mongodata:
-
-networks:
   login-db:
+    image: mysql
+    ports:
+      - "7004:7004"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: runapp
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: login
+      MYSQL_HOST: login-db
+  login-ms:
+    build: .
+    command: bash -c "sleep 40 && rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails s -p 6004 -b '0.0.0.0'"
+    ports:
+      - "6005:6005"
+    depends_on:
+      - login-db

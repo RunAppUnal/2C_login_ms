@@ -1,29 +1,24 @@
-# 2C_login_ms
+# README
 
-### Montar servicio a docker
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Ejecutar las siguientes instucciones:
+Things you may want to cover:
 
-1. Subir la bd a rancher e inicializarla:
+* Ruby version
 
-`docker-compose up`
+* System dependencies
 
-2. Subir el programa a Rancher
+* Configuration
 
-`docker build -t login-ms .`
+* Database creation
 
-3. Iniciar el programa
+* Database initialization
 
-`docker run --name login-ms -p 6004:6004 login-ms`
+* How to run the test suite
 
-**Aclaración:** Los comandos se deben ejecutar desde la terminal, en la ruta del proyecto (1. en una terminal y 2.,3. desde otra terminal).
+* Services (job queues, cache servers, search engines, etc.)
 
-### Ejecutar los microservicios
+* Deployment instructions
 
-1. Ejecutar microservicio login-db
-
-`docker start login-db`
-
-2. Ejecutar microservicio login-ms
-
-`docker start login-ms`
+* ...

@@ -1,22 +1,12 @@
-# golang image where workspace (GOPATH) configured at /go.
-FROM golang
+FROM ruby:2.3
 
-# Install dependencies
-RUN go get github.com/gorilla/handlers
-RUN go get github.com/gorilla/mux
-RUN go get github.com/night-codes/mgo-ai
-RUN go get golang.org/x/crypto/bcrypt
-RUN go get gopkg.in/mgo.v2/bson
+RUN mkdir /login-ms
+WORKDIR /login-ms
 
-# copy the local package files to the container workspace
-COPY . /go/src/2C_login_ms
+ADD Gemfile /login-ms/Gemfile
+ADD Gemfile.lock /login-ms/Gemfile.lock
 
-# Build the users command inside the container.
-RUN go install 2C_login_ms/cmd/app
-
-# Run the users microservice when the container starts.
-ENTRYPOINT /go/bin/app
-
-# Service listens on port 6004.
+RUN bundle install
+ADD . /login-ms
 
 EXPOSE 6004
