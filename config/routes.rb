@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/auth/userById/:id', to: 'user#findUserById'
   get '/auth/userByUsername/:username', to: 'user#findUserByUsername'
 
+  wash_out :wsusers
 end
