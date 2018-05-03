@@ -84,6 +84,36 @@ definitions:
         type: string
 
 
+  /auth/sign_in:
+    post:
+      summary: Login
+      operationId: login
+      parameters:
+        - name: user
+          in: body
+          required: true
+          description: User Object
+          schema:
+            $ref: '#/definitions/UserCredential'
+      responses:
+        '201':
+          description: Logged in
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  UserCredential:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
 # Errors
   ErrorModel:
     type: object
