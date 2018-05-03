@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
   protected
   def configure_permitted_parameters
     Rails.logger.info "in ApplicationController.rb configure_permitted_parameters!"
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :lastname, :cellphone])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :lastname, :cellphone, :registration])
   end
 
 end

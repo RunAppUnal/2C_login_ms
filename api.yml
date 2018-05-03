@@ -54,7 +54,7 @@ definitions:
       uid:
         type: string
       allow_password_change:
-        type: boolean
+        type: Boolean
       name:
         type: string
       lastname:
