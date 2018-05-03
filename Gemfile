@@ -8,6 +8,7 @@ end
 gem 'therubyracer', :platforms => :ruby
 gem 'execjs'
 gem 'devise_token_auth'
+gem 'net-ldap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use mysql as the database for Active Record
