@@ -24,7 +24,7 @@ class LdapController < ApplicationController
                 port: 389,
                 auth: {
                     method: :simple,
-                    dn: "cn=" + email + "@unal.edu.co, ou=academy,dc=arqsoft,dc=unal,dc=edu,dc=co",
+                    dn: "cn=" + email + "@unal.edu.co, ou=runapp,dc=arqsoft,dc=unal,dc=edu,dc=co",
                     password: password
                 }
             )
